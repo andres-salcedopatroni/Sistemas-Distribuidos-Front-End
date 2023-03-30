@@ -1,0 +1,7 @@
+<div class="container" style="height:100%;">
+    <div class="row" style="height:30%;">
+        <input class=col-8 type="text" id="busqueda" [(ngModel)]="nombre">
+        <button class=col-4 type="button" (click)="busqueda(nombre)">Buscar</button>
+    </div>
+    <app-lista class="row" *ngIf="datos" [productos]="datos" style="height:70%;"></app-lista>
+</div>
