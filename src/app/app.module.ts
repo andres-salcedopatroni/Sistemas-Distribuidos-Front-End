@@ -6,12 +6,16 @@ import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { ListaComponent } from './componentes/lista/lista.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { IngresoComponent } from './componentes/ingreso/ingreso.component';
+import { MiUsuarioComponent } from './componentes/mi-usuario/mi-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BusquedaComponent,
-    ListaComponent
+    ListaComponent,
+    IngresoComponent,
+    MiUsuarioComponent
   ],
   imports: [
     BrowserModule,
