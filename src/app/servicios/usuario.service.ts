@@ -8,12 +8,16 @@ import { Observable } from 'rxjs';
 
 export class UsuarioService {
 
-  urlIngresarUsuario='http://localhost:3000/usuario/ingreso'
+  urlUsuario='http://localhost:3000/usuario/';
 
   constructor(private http: HttpClient) { }
 
   ingresarUsuario(dni_ruc:String, clave:String):Observable<any>{
-    return this.http.get(this.urlIngresarUsuario+'?dni_ruc='+dni_ruc+'&clave='+clave);
+    return this.http.get(this.urlUsuario+'ingreso?dni_ruc='+dni_ruc+'&clave='+clave);
+  }
+
+  crearUsuario(usuario:any):Observable<any>{
+    return this.http.post(this.urlUsuario+'crear',usuario);
   }
 
 }

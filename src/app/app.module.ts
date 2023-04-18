@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IngresoComponent } from './componentes/ingreso/ingreso.component';
 import { MiUsuarioComponent } from './componentes/mi-usuario/mi-usuario.component';
+import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MiUsuarioComponent } from './componentes/mi-usuario/mi-usuario.componen
     BusquedaComponent,
     ListaComponent,
     IngresoComponent,
-    MiUsuarioComponent
+    MiUsuarioComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,
