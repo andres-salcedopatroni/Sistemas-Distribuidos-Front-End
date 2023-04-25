@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { IngresoComponent } from './componentes/ingreso/ingreso.component';
 import { MiUsuarioComponent } from './componentes/mi-usuario/mi-usuario.component';
 import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
+import { ActualizarUsuarioComponent } from './componentes/actualizar-usuario/actualizar-usuario.component';
+import { MiUsuarioService } from './servicios/mi-usuario.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario
     ListaComponent,
     IngresoComponent,
     MiUsuarioComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    ActualizarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MiUsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

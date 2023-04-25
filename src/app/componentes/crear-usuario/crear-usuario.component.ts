@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -15,12 +16,18 @@ export class CrearUsuarioComponent implements OnInit {
   tipo_seleccionado:String='Empresa';
   
 
-  constructor(private servicioUsuario:UsuarioService) { }
+  constructor(private servicioUsuario:UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   crear(): void {
-    this.servicioUsuario.crearUsuario({"nombre":this.nombre,"dni_ruc":this.dni_ruc,"tipo":this.tipo_seleccionado,"clave":this.clave}).subscribe((data)=>{console.log(data);console.log(this.dni_ruc);},(err)=>{console.log(err)});
+    this.servicioUsuario.crearUsuario({"nombre":this.nombre,"dni_ruc":this.dni_ruc,"tipo":this.tipo_seleccionado,"clave":this.clave}).subscribe(
+      (data)=>{
+        console.log(data);
+        this.router.navigate(['']);
+      },(err)=>{
+        console.log(err)
+      });
   }
 }

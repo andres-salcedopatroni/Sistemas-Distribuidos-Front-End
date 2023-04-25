@@ -16,8 +16,20 @@ export class UsuarioService {
     return this.http.get(this.urlUsuario+'ingreso?dni_ruc='+dni_ruc+'&clave='+clave);
   }
 
+  obtenerUsuario(dni_ruc:String):Observable<any>{
+    return this.http.get(this.urlUsuario+'obtener?dni_ruc='+dni_ruc);
+  }
+
+  eliminarUsuario(dni_ruc:String):Observable<any>{
+    return this.http.delete(this.urlUsuario+'eliminar?dni_ruc='+dni_ruc);
+  }
+
   crearUsuario(usuario:any):Observable<any>{
     return this.http.post(this.urlUsuario+'crear',usuario);
+  }
+
+  actualizarUsuario(dni_ruc:String,usuario:any):Observable<any>{
+    return this.http.put(this.urlUsuario+'actualizar?dni_ruc='+dni_ruc,usuario);
   }
 
 }
