@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MiUsuarioService } from 'src/app/servicios/mi-usuario.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { WebSocketService } from 'src/app/servicios/web-socket.service';
 
 @Component({
   selector: 'app-ingreso',
@@ -13,15 +14,17 @@ export class IngresoComponent implements OnInit {
   clave:any;
   dni_ruc:any;
 
-  constructor(private servicioUsuario: UsuarioService, private router: Router) { }
+  constructor(private servicioUsuario: UsuarioService, private router: Router, private servicioWebSocket:WebSocketService) { }
 
   ngOnInit(): void {
-
+    this.servicioWebSocket.sendMessage("data");
+    this.servicioWebSocket.getNewMessage()?.subscribe((data)=>{console.log(data)})
   }
 
   ingresar():void{
     this.servicioUsuario.ingresarUsuario(this.dni_ruc,this.clave).subscribe(
       (data)=>{
+        
         MiUsuarioService.ingresarUsuario(this.dni_ruc);
         this.router.navigate(['mi_usuario']);
       },(err)=>{

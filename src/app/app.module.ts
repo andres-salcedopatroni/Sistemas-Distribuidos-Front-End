@@ -11,6 +11,7 @@ import { MiUsuarioComponent } from './componentes/mi-usuario/mi-usuario.componen
 import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
 import { ActualizarUsuarioComponent } from './componentes/actualizar-usuario/actualizar-usuario.component';
 import { MiUsuarioService } from './servicios/mi-usuario.service';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MiUsuarioService } from './servicios/mi-usuario.service';
     IngresoComponent,
     MiUsuarioComponent,
     CrearUsuarioComponent,
-    ActualizarUsuarioComponent
+    ActualizarUsuarioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
