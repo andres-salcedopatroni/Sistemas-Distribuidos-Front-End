@@ -12,6 +12,7 @@ import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario
 import { ActualizarUsuarioComponent } from './componentes/actualizar-usuario/actualizar-usuario.component';
 import { MiUsuarioService } from './servicios/mi-usuario.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [MiUsuarioService],
   bootstrap: [AppComponent]
