@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,21 +9,38 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 })
 export class BusquedaComponent implements OnInit {
 
-  nombre:String='';
-  datos:any;
+  nombre: String= '';
+  datos: any;
+  tipo_seleccionado: String= 'Usuarios';
+  tipo: Array<String> = ['Usuarios', 'Productos'];
 
-  constructor(private servicioProductos:ProductoService) { }
+  constructor(private servicioProducto: ProductoService, private servicioUsuario: UsuarioService) { }
 
   ngOnInit(): void {
   }
 
   busqueda(nombre:String):void{
-    this.servicioProductos.obtenerProductos(nombre).subscribe(
-        (datos)=>{
-          console.log(datos);
-          this.datos=datos
-        }
-      )
-  }
 
+    switch(this.tipo_seleccionado){
+      case 'Usuarios':{
+        this.servicioUsuario.filtroUsuario(nombre).subscribe(
+          (datos)=>{
+            console.log(datos);
+            this.datos=datos
+          }
+        )
+        break;
+      }
+      case 'Productos':{
+        this.servicioProducto.filtroProducto(nombre).subscribe(
+          (datos)=>{
+            console.log(datos);
+            this.datos=datos
+          }
+        )
+        break;
+      }
+    };
+    console.log(this.nombre);
+  }
 }

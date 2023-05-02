@@ -14,17 +14,17 @@ export class IngresoComponent implements OnInit {
   clave:any;
   dni_ruc:any;
 
-  constructor(private servicioUsuario: UsuarioService, private router: Router, private servicioWebSocket:WebSocketService) { }
+  constructor(private servicioUsuario: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
-    this.servicioWebSocket.sendMessage("data");
-    this.servicioWebSocket.getNewMessage()?.subscribe((data)=>{console.log(data)})
+    
+    //this.servicioWebSocket.getNewMessage()?.subscribe((data)=>{console.log(data)})
   }
 
   ingresar():void{
     this.servicioUsuario.ingresarUsuario(this.dni_ruc,this.clave).subscribe(
       (data)=>{
-        
+        WebSocketService.sendMessage(this.dni_ruc);
         MiUsuarioService.ingresarUsuario(this.dni_ruc);
         this.router.navigate(['mi_usuario']);
       },(err)=>{

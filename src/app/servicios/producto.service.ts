@@ -7,12 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class ProductoService {
 
-  urlObtenerProductos='http://localhost:3000/productos'
+  urlProducto='http://localhost:3000/producto/'
   
   constructor(private http:HttpClient) { }
 
   obtenerProductos(nombre:String):Observable<any>{
-    return this.http.get(this.urlObtenerProductos+'?nombre='+nombre);
+    return this.http.get(this.urlProducto+'?nombre='+nombre);
+  }
+
+  filtroProducto(nombre:String):Observable<any>{
+    return this.http.get(this.urlProducto+'filtro?nombre='+nombre);
+  }
+
+  crearProducto(producto:any):Observable<any>{
+    return this.http.post(this.urlProducto+'crear', producto);
   }
 
 }

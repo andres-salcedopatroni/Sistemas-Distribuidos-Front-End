@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MiUsuarioService } from 'src/app/servicios/mi-usuario.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { WebSocketService } from 'src/app/servicios/web-socket.service';
 
 @Component({
   selector: 'app-mi-usuario',
@@ -24,11 +25,13 @@ export class MiUsuarioComponent implements OnInit {
         this.nombre=data.nombre;
         this.dni_ruc=data.dni_ruc;
         this.tipo=data.tipo;
+        WebSocketService.nuevoProductoPatrocinado();
       },
       (err)=>{
         console.log(MiUsuarioService.obtenerUsuario())
         console.log(err);
-      })
+      });
+      
   }
 
   eliminar(): void{
@@ -44,12 +47,16 @@ export class MiUsuarioComponent implements OnInit {
   }
 
   salir(): void{
-    MiUsuarioService.ingresarUsuario(null);
+    MiUsuarioService.salir();
     this.router.navigate(['']);
   }
 
   actualizar(): void{
     this.router.navigate(['actualizar_usuario']);
+  }
+
+  agregarProducto(): void{
+    this.router.navigate(['crear_producto']);
   }
 
 }

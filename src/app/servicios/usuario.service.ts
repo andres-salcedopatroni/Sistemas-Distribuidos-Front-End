@@ -20,6 +20,11 @@ export class UsuarioService {
     return this.http.get(this.urlUsuario+'obtener?dni_ruc='+dni_ruc);
   }
 
+  filtroUsuario(nombre:String):Observable<any>{
+    return this.http.get(this.urlUsuario+'filtro?nombre='+nombre);
+  }
+
+
   eliminarUsuario(dni_ruc:String):Observable<any>{
     return this.http.delete(this.urlUsuario+'eliminar?dni_ruc='+dni_ruc);
   }

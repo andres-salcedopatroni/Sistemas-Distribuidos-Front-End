@@ -13,6 +13,9 @@ import { ActualizarUsuarioComponent } from './componentes/actualizar-usuario/act
 import { MiUsuarioService } from './servicios/mi-usuario.service';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PerfilUsuarioComponent } from './componentes/perfil-usuario/perfil-usuario.component';
+import { CrearProductoComponent } from './componentes/crear-producto/crear-producto.component';
+import { WebSocketService } from './servicios/web-socket.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MiUsuarioComponent,
     CrearUsuarioComponent,
     ActualizarUsuarioComponent,
-    NavbarComponent
+    NavbarComponent,
+    PerfilUsuarioComponent,
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule
   ],
-  providers: [MiUsuarioService],
+  providers: [MiUsuarioService,WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
